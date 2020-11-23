@@ -55,3 +55,12 @@ if {[variant_exists universal] && [variant_isset universal]} {
 }
 
 livecheck.regex     "${name}_(\\d+(?:\\.\\d+)*)${extract.suffix}"
+
+variant main10 description {Enable 10-bit encoding} {
+    configure.args-append -DHIGH_BIT_DEPTH=ON
+}
+
+variant main12 description {Cannot be used with 10-bit} {
+    configure.args-append -DHIGH_BIT_DEPTH=ON \
+                          -DMAIN12=ON
+}
